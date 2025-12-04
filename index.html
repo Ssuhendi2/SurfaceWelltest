@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ringkasan Peralatan Surface Well Testing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Summary of SWT Equipment</h1>
+        <p>This webpage contains videos and summaries of every equipment.</p>
+    </header>
+
+    <main>
+        <div class="tab">
+            <button class="tablinks active" onclick="loadContent('pages/flowhead.html', this)">Flowhead</button>
+            <button class="tablinks" onclick="loadContent('pages/coflexip.html', this)">Coflexip Hose</button>
+            <button class="tablinks" onclick="loadContent('pages/piping.html', this)">Rigid Piping</button>
+            <button class="tablinks" onclick="loadContent('pages/heater.html', this)">Heater / Exchanger</button>
+            <button class="tablinks" onclick="loadContent('pages/choke.html', this)">Choke Manifold</button>
+            <button class="tablinks" onclick="loadContent('pages/separator.html', this)">Test Separator</button>
+            <button class="tablinks" onclick="loadContent('pages/burner.html', this)">Oil & Gas Burner</button>
+        </div>
+
+        <div id="content-area" class="tabcontent" style="display: block;">
+            <p style="text-align:center; padding:20px;">Memuat data...</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SWTEquipmentSummary.com</p>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <script>
+        // Load Flowhead secara otomatis saat web pertama kali dibuka
+        window.onload = function() {
+            // Ambil tombol pertama
+            const firstButton = document.querySelector('.tablinks');
+            loadContent('pages/flowhead.html', firstButton);
+        };
+    </script>
+</body>
+</html>
