@@ -31,27 +31,38 @@ main {
 }
 
 /* Gaya untuk tombol di dalam tab */
+/* Gaya untuk tombol di dalam tab */
 .tab button {
-    background-color: inherit;
+    background-color: #f9f9f9; /* Warna dasar sedikit lebih terang */
     float: left;
-    border: none;
+    border: 1px solid #ddd; /* Tambahkan garis tepi tipis */
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 16px;
     color: #555;
+    
+    /* --- INI BAGIAN PENTING UNTUK EFEK TIMBUL --- */
+    border-radius: 5px;       /* Membuat sudut tidak tajam */
+    margin: 5px 5px 0 5px;    /* Memberi jarak antar tombol agar bayangan terlihat */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Bayangan bawah lembut */
 }
 
-/* Ubah warna background saat tombol di-hover */
+/* Efek saat tombol ditekan (Active atau Hover) */
 .tab button:hover {
-    background-color: #ddd;
+    background-color: #e2e6ea;
+    transform: translateY(-2px); /* Tombol naik sedikit saat disentuh mouse */
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15); /* Bayangan membesar saat naik */
 }
 
-/* Gaya untuk tombol tab yang aktif */
+/* Gaya khusus untuk tombol yang sedang Aktif (Halaman yang dibuka) */
 .tab button.active {
     background-color: #0056b3;
     color: white;
+    border-color: #0056b3;
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.2); /* Bayangan ke dalam (terkesan ditekan) */
+    transform: translateY(0); /* Kembali ke posisi semula */
 }
 
 /* Gaya untuk konten tab */
