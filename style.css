@@ -1,122 +1,140 @@
+/* Reset CSS Dasar */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f0f2f5;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+/* HEADER */
 header {
-    background-color: #0056b3; /* Warna biru industri */
+    background-color: #003366; /* Biru Gelap SLB Style */
     color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 100;
 }
 
-main {
-    padding: 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border-radius: 8px;
+header h1 { margin: 0; font-size: 24px; }
+header p { margin: 5px 0 0; font-size: 14px; opacity: 0.8; }
+
+/* LAYOUT CONTAINER (Flexbox untuk Sidebar & Main) */
+.container {
+    display: flex;
+    flex: 1; /* Mengisi sisa ruang vertikal */
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
 }
 
-/* Gaya untuk Tab Navigasi */
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    border-radius: 5px 5px 0 0;
-}
-
-/* Gaya untuk tombol di dalam tab */
-/* Gaya untuk tombol di dalam tab */
-.tab button {
-    background-color: #f9f9f9; /* Warna dasar sedikit lebih terang */
-    float: left;
-    border: 1px solid #ddd; /* Tambahkan garis tepi tipis */
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 16px;
-    color: #555;
+/* SIDEBAR KIRI */
+.sidebar {
+    width: 260px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    padding: 20px 0;
+    flex-shrink: 0; /* Mencegah sidebar mengecil */
     
-    /* --- INI BAGIAN PENTING UNTUK EFEK TIMBUL --- */
-    border-radius: 5px;       /* Membuat sudut tidak tajam */
-    margin: 5px 5px 0 5px;    /* Memberi jarak antar tombol agar bayangan terlihat */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Bayangan bawah lembut */
+    /* Agar sidebar tetap diam saat konten discroll */
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 80px); /* Tinggi layar dikurangi header */
+    overflow-y: auto; /* Scrollbar jika menu terlalu panjang */
 }
 
-/* Efek saat tombol ditekan (Active atau Hover) */
-.tab button:hover {
-    background-color: #e2e6ea;
-    transform: translateY(-2px); /* Tombol naik sedikit saat disentuh mouse */
-    box-shadow: 0 6px 8px rgba(0,0,0,0.15); /* Bayangan membesar saat naik */
+/* Judul Kategori di Sidebar */
+.category-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #444;
+    font-weight: bolder;
+    padding: 15px 20px 5px 20px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+.category-title:first-child { margin-top: 0; }
+
+/* Tombol Navigasi Sidebar */
+.nav-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    color: #444;
+    transition: all 0.2s;
+    border-left: 4px solid transparent; /* Garis indikator kiri */
 }
 
-/* Gaya khusus untuk tombol yang sedang Aktif (Halaman yang dibuka) */
-.tab button.active {
-    background-color: #0056b3;
-    color: white;
-    border-color: #0056b3;
-    box-shadow: inset 0 3px 5px rgba(0,0,0,0.2); /* Bayangan ke dalam (terkesan ditekan) */
-    transform: translateY(0); /* Kembali ke posisi semula */
+.nav-btn:hover {
+    background-color: #f8f9fa;
+    color: #003366;
 }
 
-/* Gaya untuk konten tab */
-.tabcontent {
-    display: none;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-top: none;
-    border-radius: 0 0 5px 5px;
-    animation: fadeEffect 0.5s; /* Efek fade-in */
+/* Tombol Aktif */
+.nav-btn.active {
+    background-color: #e3f2fd;
+    color: #0056b3;
+    font-weight: 600;
+    border-left: 4px solid #0056b3; /* Indikator biru di kiri */
 }
 
-/* Animasi Fade-in */
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
+/* MAIN CONTENT (KANAN) */
+main {
+    flex: 1;
+    padding: 30px;
+    background-color: #f0f2f5;
+    overflow-y: auto;
 }
 
-/* Kontainer Video agar Responsif */
+/* Styling Konten (Sama seperti sebelumnya, tapi disesuaikan) */
+h2 { color: #003366; border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-top: 0; }
+h3 { color: #0056b3; margin-top: 25px; }
+h4 { color: #444; margin-top: 20px; font-weight: bold; }
+
+ul { line-height: 1.6; }
+li { margin-bottom: 8px; }
+
+/* Video Container */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* Rasio aspek 16:9 */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: #000;
 }
-
 .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 }
 
-/* Gaya untuk Ringkasan */
-.summary {
-    padding: 15px;
-    background-color: #e9ecef;
-    border-left: 5px solid #0056b3;
-    border-radius: 4px;
-}
-
-.summary h3 {
-    margin-top: 0;
-    color: #0056b3;
-}
-
+/* FOOTER */
 footer {
-    text-align: center;
-    padding: 15px;
     background-color: #333;
-    color: white;
-    margin-top: 20px;
+    color: #bbb;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+}
+
+/* RESPONSIVE (Untuk HP) */
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+    .sidebar { 
+        width: 100%; 
+        height: auto; 
+        position: relative; 
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+    .main { padding: 15px; }
 }

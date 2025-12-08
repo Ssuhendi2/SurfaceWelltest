@@ -3,49 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ringkasan Peralatan Surface Well Testing</title>
+    <title>Surface Well Testing Knowledge Base</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Summary of SWT Equipment</h1>
-        <p>This webpage contains videos and summaries of every equipment.</p>
+        <h1>Surface Well Testing (SWT) Guide</h1>
+        <p>Field Operation Handbook & Pressure Operations Manual Summary</p>
     </header>
 
-    <main>
-        <div class="tab">
-            <button class="tablinks active" onclick="loadContent('pages/flowhead.html', this)">Flowhead</button>
-            <button class="tablinks" onclick="loadContent('pages/coflexip.html', this)">Coflexip Hose</button>
-            <button class="tablinks" onclick="loadContent('pages/piping.html', this)">Rigid Piping</button>
-            <button class="tablinks" onclick="loadContent('pages/heater.html', this)">Heater / Exchanger</button>
-            <button class="tablinks" onclick="loadContent('pages/choke.html', this)">Choke Manifold</button>
-            <button class="tablinks" onclick="loadContent('pages/separator.html', this)">Test Separator</button>
-            <button class="tablinks" onclick="loadContent('pages/surgetank.html', this)">Surge Tank</button>
-            <button class="tablinks" onclick="loadContent('pages/transferpump.html', this)">Transfer Pump</button>
-            <button class="tablinks" onclick="loadContent('pages/oilburner.html', this)">Oil Burner</button>
-            <button class="tablinks" onclick="loadContent('pages/gasflaring.html', this)">Gas Flaring</button>
+    <div class="container">
+        <nav class="sidebar">
             
-        </div>
+            <div class="category-title">Oilfield Introduction</div>
+            <button class="nav-btn" onclick="loadContent('pages/geologyrecap.html', this)">Geology Recap</button>
+            <button class="nav-btn" onclick="loadContent('pages/phasebehaviour.html', this)">Phase Behaviour & PVT</button>
+            <button class="nav-btn" onclick="loadContent('pages/interactingforcesaturation.html', this)">Forces & Saturation</button>
+            <button class="nav-btn" onclick="loadContent('pages/fluidproperties.html', this)">Fluid Properties</button>
 
-        <div id="content-area" class="tabcontent" style="display: block;">
-            <p style="text-align:center; padding:20px;">Memuat data...</p>
-        </div>
+            <div class="category-title">Well Test Equipment</div>
+            <button class="nav-btn active" onclick="loadContent('pages/flowhead.html', this)">Flowhead</button>
+            <button class="nav-btn" onclick="loadContent('pages/coflexip.html', this)">Coflexip / Hose</button>
+            <button class="nav-btn" onclick="loadContent('pages/choke.html', this)">Choke Manifold</button>
+            <button class="nav-btn" onclick="loadContent('pages/piping.html', this)">Rigid Piping</button>
+            <button class="nav-btn" onclick="loadContent('pages/heater.html', this)">Heater / Exchanger</button>
+            <button class="nav-btn" onclick="loadContent('pages/separator.html', this)">Test Separator</button>
+            <button class="nav-btn" onclick="loadContent('pages/surgetank.html', this)">Surge Tank</button>
+            <button class="nav-btn" onclick="loadContent('pages/transferpump.html', this)">Transfer Pump</button>
+            <button class="nav-btn" onclick="loadContent('pages/oilburner.html', this)">Oil Burner</button>
+            <button class="nav-btn" onclick="loadContent('pages/gasflaring.html', this)">Gas Flaring System</button>
 
-    </main>
+        </nav>
+
+        <main id="content-area">
+            <p style="text-align: center; padding: 50px;">Memuat data...</p>
+        </main>
+    </div>
 
     <footer>
-        <p>&copy; 2025 SWTEquipmentSummary.com devs:Suhendi Hamim, Ex-SLB Surface Welltest Specialist</p>
+        <p>&copy; 2025 SWT Knowledge Base | Created for Field Operations</p>
     </footer>
 
     <script src="script.js"></script>
-    
     <script>
-        // Load Flowhead secara otomatis saat web pertama kali dibuka
+        // Load Flowhead otomatis saat pertama kali dibuka
         window.onload = function() {
-            // Ambil tombol pertama
-            const firstButton = document.querySelector('.tablinks');
-            loadContent('pages/flowhead.html', firstButton);
+            // Cari tombol yang punya class 'active' di HTML (Flowhead)
+            const defaultBtn = document.querySelector('.nav-btn.active');
+            if(defaultBtn) {
+                loadContent('pages/flowhead.html', defaultBtn);
+            }
         };
     </script>
 </body>

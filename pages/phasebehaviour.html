@@ -1,0 +1,65 @@
+<h2>Phase Behaviour & PVT</h2>
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID_PVT" title="Phase Behaviour and PVT Analysis" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class="summary">
+    <h3>Phase Behaviour Principles</h3>
+    <p>Understanding the Pressure-Volume-Temperature (PVT) relationships is essential for analyzing reservoir fluids, which often exist in multiple phases simultaneously.</p>
+
+    <h4>1. Single vs. Multi-Component Systems</h4>
+    
+    <ul>
+        <li><b>Single Component (e.g., Ethane):</b> Passes through a bubble point and dew point on a single vapor pressure curve. Ends at the <b>Critical Point</b> (where liquid and gas properties are identical).</li>
+        <li><b>Multi-Component Mixture:</b> Forms a <b>Phase Envelope</b> where bubble point and dew point curves do not coincide. Inside this envelope, gas and oil exist in equilibrium.</li>
+    </ul>
+
+    <hr>
+
+    <h4>2. Compressibility and the Z Factor</h4>
+    <p>Ideal gases follow $pV = nRT$, but reservoir gases deviate at high $P$ & $T$. We use the dimensionless <b>z factor</b> to correct this:</p>
+    <div style="background-color: #f8f9fa; padding: 10px; border-radius: 5px; text-align: center; font-size: 1.2em; margin: 10px 0; border: 1px dashed #ccc;">
+        $$pV = znRT$$
+    </div>
+    <p>The $z$ factor describes how real gas mixtures behave under oilfield conditions compared to ideal gases.</p>
+
+    <hr>
+
+    <h4>3. Formation Volume Factors (B)</h4>
+    
+    <p>To convert downhole volumes to Standard Conditions (60°F and 14.7 psia), we use the <b>Formation Volume Factor (B)</b>:</p>
+    <ul>
+        <li><b>Gas ($B_g$):</b> Accounts for the expansion of free gas as pressure drops.</li>
+        <li><b>Oil ($B_o$):</b> Accounts for shrinkage due to evolved gas. $B_o$ increases up to the bubble point (gas dissolving), then decreases (liquid compressibility).</li>
+        <li><b>Water ($B_w$):</b> Usually approximated as 1.0.</li>
+    </ul>
+
+    <hr>
+
+    <h4>4. Fluid Density and Viscosity</h4>
+    <ul>
+        <li><b>Density:</b> 
+            <ul>
+                <li><i>Gas Gravity:</i> Ratio of gas density to air density.</li>
+                <li><i>Oil Density:</i> Must account for dissolved gas and volume increase ($B_o$).</li>
+            </ul>
+        </li>
+        <li><b>Viscosity:</b> 
+            <ul>
+                <li><i>Oil:</i> Decreases with higher temperature and increased dissolved gas.</li>
+                <li><i>Gas:</i> At high $P$ and low $T$, gas viscosity resembles a liquid.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <br>
+
+    <div style="background-color: #e3f2fd; border: 2px solid #2196f3; padding: 15px; border-radius: 8px;">
+        <h4 style="color: #0d47a1; margin-top:0;">💡 Reservoir Engineering Constants</h4>
+        <ul>
+            <li><b>Standard Conditions:</b> 60°F [15.5°C] and 14.7 psia [1 bar].</li>
+            <li><b>Critical Point:</b> State where gas and liquid phases become indistinguishable.</li>
+            <li><b>Formation Volume Factor (B):</b> Ratio of volume at reservoir conditions to surface conditions.</li>
+        </ul>
+    </div>
+</div>
