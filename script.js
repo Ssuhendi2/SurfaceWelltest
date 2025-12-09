@@ -10,10 +10,10 @@ async function loadContent(pageUrl, buttonElement) {
             contentArea.innerHTML = htmlText;
             window.scrollTo(0, 0); 
         } else {
-            contentArea.innerHTML = "<h2>Error 404: Halaman tidak ditemukan.</h2>";
+            contentArea.innerHTML = "<h2>Error 404: Page not found</h2>";
         }
     } catch (error) {
-        contentArea.innerHTML = "<h2>Gagal memuat. Pastikan Live Server aktif.</h2>";
+        contentArea.innerHTML = "<h2>Failed to load, make sure live server is active.</h2>";
         console.error(error);
     }
 
@@ -36,7 +36,7 @@ async function loadContent(pageUrl, buttonElement) {
         const btn = document.querySelector('.mobile-menu-btn');
         if (sidebar) {
             sidebar.style.display = "none";
-            btn.innerHTML = "☰ Buka Menu Kategori";
+            btn.innerHTML = "☰ Click menu to open categories";
         }
     }
 }
@@ -52,9 +52,9 @@ function toggleMobileMenu() {
 
     if (currentDisplay === "none") {
         sidebar.style.display = "block";
-        btn.innerHTML = "✕ Tutup Menu";
+        btn.innerHTML = "✕ Closed menu";
     } else {
         sidebar.style.display = "none";
-        btn.innerHTML = "☰ Buka Menu Kategori";
+        btn.innerHTML = "☰ Click to open categories";
     }
 }
