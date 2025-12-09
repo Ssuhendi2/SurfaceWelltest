@@ -1,7 +1,6 @@
 async function loadContent(pageUrl, buttonElement) {
     const contentArea = document.getElementById('content-area');
 
-    // Tampilkan efek loading sederhana
     contentArea.style.opacity = '0.5';
 
     try {
@@ -9,7 +8,7 @@ async function loadContent(pageUrl, buttonElement) {
         if (response.ok) {
             const htmlText = await response.text();
             contentArea.innerHTML = htmlText;
-            window.scrollTo(0, 0); // Scroll ke atas setiap ganti halaman
+            window.scrollTo(0, 0); 
         } else {
             contentArea.innerHTML = "<h2>Error 404: Halaman tidak ditemukan.</h2>";
         }
@@ -18,18 +17,44 @@ async function loadContent(pageUrl, buttonElement) {
         console.error(error);
     }
 
-    // Kembalikan opacity
     contentArea.style.opacity = '1';
 
     // UPDATE TOMBOL AKTIF
-    // 1. Hapus class 'active' dari semua tombol navigasi
     let navButtons = document.getElementsByClassName("nav-btn");
     for (let i = 0; i < navButtons.length; i++) {
         navButtons[i].classList.remove("active");
     }
 
-    // 2. Tambahkan class 'active' ke tombol yang diklik
     if (buttonElement) {
         buttonElement.classList.add("active");
+    }
+
+    // --- TAMBAHAN KHUSUS MOBILE ---
+    // Jika layar kecil (HP), tutup menu sidebar setelah user klik salah satu tombol
+    if (window.innerWidth <= 768) {
+        const sidebar = document.querySelector('.sidebar');
+        const btn = document.querySelector('.mobile-menu-btn');
+        if (sidebar) {
+            sidebar.style.display = "none";
+            btn.innerHTML = "☰ Buka Menu Kategori";
+        }
+    }
+}
+
+// --- FUNGSI BARU UNTUK TOMBOL HEADER ---
+function toggleMobileMenu() {
+    const sidebar = document.querySelector('.sidebar');
+    const btn = document.querySelector('.mobile-menu-btn');
+
+    // Cek apakah sidebar sedang tampil atau sembunyi
+    // Kita gunakan getComputedStyle karena style default di CSS adalah 'none'
+    const currentDisplay = window.getComputedStyle(sidebar).display;
+
+    if (currentDisplay === "none") {
+        sidebar.style.display = "block";
+        btn.innerHTML = "✕ Tutup Menu";
+    } else {
+        sidebar.style.display = "none";
+        btn.innerHTML = "☰ Buka Menu Kategori";
     }
 }

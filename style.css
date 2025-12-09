@@ -138,3 +138,72 @@ footer {
     }
     .main { padding: 15px; }
 }
+/* --- STYLE UNTUK TOMBOL MENU MOBILE --- */
+.mobile-menu-btn {
+    display: none; /* Default: Sembunyi di Desktop */
+    background-color: #0056b3; /* Biru sedikit lebih terang dari header */
+    color: white;
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%; /* Lebar penuh di HP */
+    font-weight: bold;
+}
+
+.mobile-menu-btn:hover {
+    background-color: #004494;
+}
+
+/* --- MEDIA QUERY (KHUSUS TAMPILAN MOBILE) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Tampilkan Tombol Menu */
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* 2. Ubah Susunan Layout Container */
+    .container {
+        flex-direction: column; /* Susun Vertikal (Atas-Bawah) */
+    }
+
+    /* 3. Modifikasi Sidebar agar menjadi Dropdown */
+    .sidebar {
+        width: 100%;       /* Lebar Penuh */
+        height: auto;      /* Tinggi menyesuaikan isi */
+        position: static;  /* Matikan fitur sticky */
+        border-right: none;
+        border-bottom: 2px solid #ccc;
+        
+        /* PENTING: Sembunyikan menu secara default di HP */
+        display: none;     
+        padding: 0;
+    }
+
+    /* Class tambahan untuk Menampilkan Menu (akan di-trigger JS) */
+    .sidebar.show {
+        display: block;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    /* Merapikan Tombol di dalam Dropdown Mobile */
+    .nav-btn {
+        padding: 15px 20px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .category-title {
+        background-color: #eee;
+        margin: 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Efek Animasi Turun */
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+}
