@@ -206,4 +206,16 @@ footer {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
     }
+
+    .teks-download a {
+        color: #4da6ff; /* Contoh: warna biru muda agar terlihat di background gelap */
+        text-decoration: underline; /* Garis bawah agar jelas bahwa ini link */
+        transition: color 0.3s ease; /* Opsional: membuat perubahan warna lebih halus */
+    }
+
+    /* INI BAGIAN PENTINGNYA: Mengubah warna saat di-hover */
+    .teks-download a:hover {
+        color: #ffd700; /* Gold / Emas */
+        text-decoration: none; /* Opsional: menghilangkan garis bawah saat di-hover */
+    }
 }
